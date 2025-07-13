@@ -51,5 +51,34 @@ namespace practicaPII
         {
 
         }
+
+        protected void btnCalcular_Click(object sender, EventArgs e)
+{
+    string origen = txtOrigen.Text;
+    string destino = txtDestino.Text;
+    double peso = double.Parse(txtPeso.Text);
+    string tipo = ddlTipoEnvio.SelectedValue;
+
+    Envio envio = null;
+
+    if (tipo == "Contenedor")
+    {
+        int cantidad = int.Parse(txtContenedores.Text);
+        envio = new EnvioContenedor(origen, destino, peso, cantidad);
+    }
+    else if (tipo == "Granel")
+    {
+        string tipoGranel = txtGranel.Text;
+        envio = new EnvioGranel(origen, destino, peso, tipoGranel);
+    }
+
+      ICosteable costeable = envio as ICosteable;
+    decimal costo = costeable != null ? costeable.CalcularCosto() : 0;
+    
+    lblResultado.Text = $"Costo estimado del envío: ₡{costo}";
+    lblResultado.Visible = true;
+
+}
+
     }
 }
