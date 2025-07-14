@@ -78,13 +78,22 @@ namespace practicaPII
         protected global::System.Web.UI.WebControls.TextBox txtContenedores;
 
         /// <summary>
-        /// Control tipoGranelList.
+        /// Control panelGranel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList tipoGranelList;
+        protected global::System.Web.UI.WebControls.Panel panelGranel;
+
+        /// <summary>
+        /// Control txtGranel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGranel;
 
         /// <summary>
         /// Control btnCalcular.

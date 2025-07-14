@@ -32,22 +32,23 @@ namespace practicaPII
             Console.WriteLine("Envío granel editado.");
         }
 
-        public float CalcularCosto(string tipo)
+        public float CalcularCosto(string tipo,double peso)
         {
 
             TipoGranel = tipo;
             float costoGranel = 0;
-            if (TipoGranel == "Granos")
+            if (TipoGranel == "granos")
             {
                 costoGranel = 50;
             }
-            else if (TipoGranel == "Mineral")
+            else if (TipoGranel == "mineral")
             {
                 costoGranel = 80;
             }
+            
 
             int costoBasePorTonelada = 100;
-            return (float)(PesoToneladas * costoBasePorTonelada + costoGranel);
+            return (float)(peso * costoBasePorTonelada + costoGranel);
         }
 
         public string obtenerEstadoRural()

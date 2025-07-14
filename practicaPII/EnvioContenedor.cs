@@ -24,10 +24,10 @@ namespace practicaPII
             Console.WriteLine("Envío granel editado.");
         }
 
-        public float CalcularCosto(int CantidadContenedores)
+        public float CalcularCosto(int CantidadContenedores, double peso)
         {
             int costoBasePorTonelada = 100;
-            return (float)(PesoToneladas * costoBasePorTonelada + CantidadContenedores);
+            return (float)(peso * costoBasePorTonelada * CantidadContenedores);
         }
 
         public string obtenerEstadoRural()

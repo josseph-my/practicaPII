@@ -94,17 +94,16 @@
                 <asp:ListItem Text="Contenedor" Value="Contenedor" />
                 <asp:ListItem Text="Granel" Value="Granel" />
             </asp:DropDownList>
-                        <asp:Panel ID="panelContenedor" runat="server" Visible="false">
+                  
+                <asp:Panel ID="panelContenedor" runat="server" Visible="true">
                 <label>Cantidad de Contenedores:</label>
                 <asp:TextBox ID="txtContenedores" runat="server" TextMode="Number" />
-            </asp:Panel>
+                </asp:Panel>
 
-           <label>Tipo de granel:</label>
-            <asp:DropDownList ID="tipoGranelList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="tipoGranelList_SelectedIndexChanged">
-                <asp:ListItem Text="Seleccione..." Value="" />
-                <asp:ListItem Text="Granos" Value="Granos" />
-                <asp:ListItem Text="Mineral" Value="Mineral" />
-            </asp:DropDownList>
+                <asp:Panel ID="panelGranel" runat="server" Visible="true">
+                <label>Tipo de granel (mineral o granos):</label>
+                <asp:TextBox ID="txtGranel" runat="server"  />
+                </asp:Panel>
             
 
             <asp:Button ID="btnCalcular" runat="server" Text="Calcular y Guardar" OnClick="btnCalcular_Click" />

@@ -25,20 +25,38 @@ namespace practicaPII
         protected void btnCalcular_Click(object sender, EventArgs e)
         {
             
-            GranelTipo = tipoGranelList.SelectedItem.Text;
+            string origen = txtOrigen.Text;
+            string destino = txtDestino.Text;
+            double peso = double.Parse(txtPeso.Text);
+            
             EnvioTipo = ddlTipoEnvio.SelectedItem.Text;
 
-            switch (EnvioTipo)
+            if (EnvioTipo == "granel")
+            {
+                panelGranel.Visible = true;
+            }
+            else if (EnvioTipo == "contenedor")
+            {
+                panelContenedor.Visible = true;
+            }
+
+                switch (EnvioTipo)
             {
                 case "Granel":
+                    panelGranel.Visible = true;
+                    string granel = txtContenedores.Text;
                     EnvioGranel envioGranel = new EnvioGranel(1, "Puerto A", "Puerto B", 10, GranelTipo);
-                     costo = envioGranel.CalcularCosto(GranelTipo);
+                     costo = envioGranel.CalcularCosto(granel, peso);
                     lblEnvio.Text = $"El costo es: {costo}";
+                    lblEnvio.Visible = true;
                     break;
                 case "Contenedor":
+                    panelContenedor.Visible = true;
+                    int cantidad = int.Parse(txtContenedores.Text);
                     EnvioContenedor envioContenedor = new EnvioContenedor(1, "Puerto A", "Puerto B", 10, 6);
-                     costo = envioContenedor.CalcularCosto(CantidadContenedores);
+                     costo = envioContenedor.CalcularCosto(cantidad,peso);
                     lblEnvio.Text = $"El costo es: {costo}";
+                    lblEnvio.Visible = true;
                     break;
                 default:
                     lblEnvio.Text = "Tipo de envío no reconocido.";
